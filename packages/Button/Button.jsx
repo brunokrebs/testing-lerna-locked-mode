@@ -1,16 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Button.css';
 
-const Button = () => {
+const Button = (props) => {
   const className = `react-auth0 shadow default-font-size ${this.props.className}`;
   return (
     <button
       className={className}
-      onClick={this.props.onClick}
+      onClick={props.onClick}
     >
-      {this.props.text}
+      {props.text}
     </button>
   );
+};
+
+Button.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default Button;
