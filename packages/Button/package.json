@@ -19,6 +19,10 @@
     "email": "krebs.bruno@gmail.com",
     "url": "https://twitter.com/brunoskrebs/"
   },
+  "peerDependencies": {
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0"
+  },
   "bugs": {
     "url": "https://github.com/brunokrebs/auth0-react-component"
   },
