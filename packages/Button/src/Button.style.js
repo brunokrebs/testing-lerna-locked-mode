@@ -1,10 +1,10 @@
 export default {
   border: '1px solid #EB5424',
-  'border-radius': '3px',
-  'background-color': '#EB5424',
+  borderRadius: '3px',
+  backgroundColor: '#EB5424',
   color: '#fff',
   padding: '5px 10px 5px 10px',
-  'margin-right': '10px',
+  marginRight: '10px',
   cursor: 'pointer',
-  'line-height': '28px',
+  lineHeight: '28px',
 };
