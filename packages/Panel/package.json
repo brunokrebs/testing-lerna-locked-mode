@@ -1,0 +1,34 @@
+{
+  "name": "auth0-react-panel",
+  "version": "0.0.1",
+  "description": "Auth0 React Panel",
+  "main": "./dist/index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "prepublishOnly": "babel ./src -d ./dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "auth0",
+    "react",
+    "panel",
+    "component"
+  ],
+  "author": {
+    "name": "Bruno Krebs",
+    "email": "krebs.bruno@gmail.com",
+    "url": "https://twitter.com/brunoskrebs/"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0"
+  },
+  "bugs": {
+    "url": "https://github.com/brunokrebs/auth0-react-component"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunokrebs/auth0-react-component.git"
+  },
+  "license": "MIT"
+}
