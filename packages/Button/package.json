@@ -1,11 +1,11 @@
 {
   "name": "bk1-react-button",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Auth0 React Button",
-  "main": "./dist/index.js",
+  "main": "./dist/Button.js",
   "scripts": {
     "clean": "rimraf dist node_modules",
-    "prepublishOnly": "babel ./src -d ./dist",
+    "prepublishOnly": "babel ./src -d ./dist && cp ./src/*.css ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
