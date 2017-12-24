@@ -1,0 +1,30 @@
+{
+  "name": "auth0-react-button",
+  "version": "0.0.1",
+  "description": "Auth0 React Button",
+  "main": "./dist/index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "prepublishOnly": "babel ./src -d ./dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "auth0",
+    "react",
+    "button",
+    "component"
+  ],
+  "author": {
+    "name": "Bruno Krebs",
+    "email": "krebs.bruno@gmail.com",
+    "url": "https://twitter.com/brunoskrebs/"
+  },
+  "bugs": {
+    "url": "https://github.com/brunokrebs/auth0-react-component"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunokrebs/auth0-react-component.git"
+  },
+  "license": "MIT"
+}
