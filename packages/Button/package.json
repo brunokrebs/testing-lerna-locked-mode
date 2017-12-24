@@ -1,6 +1,6 @@
 {
   "name": "bk1-react-button",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Auth0 React Button",
   "main": "./dist/Button.js",
   "scripts": {
