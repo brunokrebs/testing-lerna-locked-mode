@@ -2,6 +2,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
+    "demo": "(cd docs && npm start) &",
     "test": "jest"
   },
   "devDependencies": {

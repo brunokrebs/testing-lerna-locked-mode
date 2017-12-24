@@ -1,18 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Button.css';
+import styles from './Button.css';
 
-const Button = (props) => {
-  const className = `react-auth0 shadow default-font-size ${props.className}`;
-  return (
-    <button
-      className={className}
-      onClick={props.onClick}
-    >
-      {props.text}
-    </button>
-  );
-};
+const Button = props => (
+  <button
+    className={props.className}
+    style={styles}
+    onClick={props.onClick}
+  >
+    {props.text}
+  </button>
+);
 
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
