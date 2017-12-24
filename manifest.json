@@ -1,0 +1,8 @@
+{
+  "short_name": "Auth0 React Components",
+  "name": "Auth0 React Components Documentation",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
