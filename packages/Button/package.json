@@ -5,8 +5,7 @@
   "main": "./dist/Button.js",
   "scripts": {
     "clean": "rimraf dist node_modules",
-    "prepublishOnly": "babel ./src -d ./dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublishOnly": "babel ./src -d ./dist"
   },
   "keywords": [
     "auth0",
