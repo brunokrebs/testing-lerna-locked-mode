@@ -1,45 +1,33 @@
-const webpack = require('karma-webpack');
-const puppeteer = require('puppeteer');
-
-process.env.CHROME_BIN = puppeteer.executablePath();
-
 module.exports = (config) => {
   config.set({
     browsers: ['Chrome'],
-    customLaunchers: {
-      Chrome_without_security: {
-        base: 'Chrome',
-        flags: ['--disable-web-security'],
-      },
-    },
+    singleRun: true,
+    frameworks: ['mocha'], // use the mocha test framework
     files: [
-      './src/**/*spec.jsx',
-    ],
-    frameworks: ['mocha'],
-    plugins: [
-      webpack,
-      'karma-chrome-launcher',
-      'karma-coverage',
-      'karma-mocha',
-      'karma-mocha-reporter',
-      'karma-webpack',
+      'tests.webpack.js', // just load this file
     ],
     preprocessors: {
-      'src/**/*spec.js': ['webpack'],
-      'src/**/*.js': ['webpack'],
-      'tests.webpack.js': ['webpack'],
+      'tests.webpack.js': ['webpack', 'sourcemap'], // preprocess with webpack and our sourcemap loader
     },
-    reporters: ['coverage', 'mocha'],
-    singleRun: true,
-    webpack: {
+    reporters: ['dots'], // report results in this format
+    webpack: { // kind of a copy of your webpack config
+      devtool: 'inline-source-map', // just do inline source maps instead of the default
       module: {
         loaders: [
-          { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
+          {
+            test: /\.jsx?$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/,
+            query: {
+              cacheDirectory: true,
+              presets: ['react', 'env'],
+            },
+          },
         ],
       },
     },
     webpackServer: {
-      noInfo: true,
+      noInfo: true, // please don't spam the console when running in karma!
     },
   });
 };
