@@ -4,12 +4,17 @@ const webpack = require('webpack');
 
 module.exports = (config) => {
   config.set({
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
     singleRun: true,
-    frameworks: ['mocha'],
+    frameworks: ['es6-shim', 'mocha'],
     files: [
       'tests.webpack.js',
     ],
+    phantomjsLauncher: {
+      // Have phantomjs exit if a ResourceError is encountered
+      // (useful if karma exits without killing phantom)
+      exitOnResourceError: true,
+    },
     preprocessors: {
       'tests.webpack.js': ['webpack', 'sourcemap'],
     },
