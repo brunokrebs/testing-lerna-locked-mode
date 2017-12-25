@@ -3,7 +3,7 @@ import assert from 'assert';
 import ReactTestUtils from 'react-dom/test-utils';
 import Button from './Button.jsx';
 
-const { renderIntoDocument } = ReactTestUtils;
+const { renderIntoDocument, Simulate } = ReactTestUtils;
 
 describe('Button', () => {
   it('should render a Button', () => {
@@ -18,16 +18,19 @@ describe('Button', () => {
       called = true;
     }
 
-    const element = renderIntoDocument(
+    const buttonClass = 'some-button-class';
+    const div = (
       <div>
-        <Button onClick={clickHandler} text="Button Label" className="go-horse"/>
-      </div>,
+        <Button onClick={clickHandler} text="Button Label" className={buttonClass} />
+      </div>
     );
+
+    const element = renderIntoDocument(div);
     assert(element, 'Button must be rendered');
-    const found = element.getElementsByClassName('go-horse')[0];
+    const found = element.getElementsByClassName(buttonClass)[0];
     assert(found.tagName === 'BUTTON', 'must find');
 
-    ReactTestUtils.Simulate.click(found);
-    assert(called, 'must be clicked');
+    Simulate.click(found);
+    assert(called, 'Must call click listener');
   });
 });
