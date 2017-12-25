@@ -31,19 +31,5 @@
     "type": "git",
     "url": "git+https://github.com/brunokrebs/auth0-react-component.git"
   },
-  "license": "MIT",
-  "devDependencies": {
-    "babel-loader": "^7.1.2",
-    "expect": "^22.0.3",
-    "karma": "^2.0.0",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-cli": "^1.0.1",
-    "karma-coverage": "^1.1.1",
-    "karma-mocha": "^1.3.0",
-    "karma-mocha-reporter": "^2.2.5",
-    "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^2.0.9",
-    "mocha": "^4.0.1",
-    "puppeteer": "^0.13.0"
-  }
+  "license": "MIT"
 }
