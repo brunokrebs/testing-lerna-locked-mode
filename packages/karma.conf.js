@@ -3,7 +3,7 @@
 const webpack = require('webpack');
 
 module.exports = (config) => {
-  config.set({
+  const configProps = {
     browsers: ['PhantomJS'],
     singleRun: true,
     frameworks: ['es6-shim', 'mocha'],
@@ -16,9 +16,13 @@ module.exports = (config) => {
       exitOnResourceError: true,
     },
     preprocessors: {
-      'tests.webpack.js': ['webpack', 'sourcemap'],
+      'tests.webpack.js': ['webpack', 'sourcemap', 'coverage'],
     },
-    reporters: ['dots'],
+    reporters: ['progress', 'coverage-istanbul'],
+    coverageIstanbulReporter: {
+      reports: ['text-summary'],
+      fixWebpackSourcePaths: true,
+    },
     webpack: {
       devtool: 'inline-source-map',
       module: {
@@ -33,6 +37,14 @@ module.exports = (config) => {
             },
           },
         ],
+        rules: [
+          // instrument only testing sources with Istanbul
+          {
+            test: /\.jsx$/,
+            use: { loader: 'istanbul-instrumenter-loader' },
+            include: `${process.cwd()}/src/Button.jsx`,
+          },
+        ],
       },
       plugins: [
         new webpack.DefinePlugin({
@@ -40,5 +52,6 @@ module.exports = (config) => {
         }),
       ],
     },
-  });
+  };
+  config.set(configProps);
 };
