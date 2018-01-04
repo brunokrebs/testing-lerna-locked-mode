@@ -15,34 +15,45 @@ module.exports = (config) => {
       // (useful if karma exits without killing phantom)
       exitOnResourceError: true,
     },
+    plugins: [
+      'karma-babel-preprocessor',
+      'karma-coverage',
+      'karma-es6-shim',
+      'karma-mocha',
+      'karma-mocha-reporter',
+      'karma-phantomjs-launcher',
+      'karma-sourcemap-loader',
+      'karma-webpack',
+    ],
     preprocessors: {
-      'tests.webpack.js': ['webpack', 'sourcemap', 'coverage'],
+      'tests.webpack.js': ['babel', 'webpack'],
     },
-    reporters: ['progress', 'coverage-istanbul'],
+    reporters: ['progress', 'coverage'],
     coverageIstanbulReporter: {
       reports: ['text-summary'],
       fixWebpackSourcePaths: true,
     },
     webpack: {
-      devtool: 'inline-source-map',
       module: {
-        loaders: [
+        rules: [
           {
-            test: /\.jsx?$/,
-            loader: 'babel-loader',
-            exclude: /node_modules/,
+            test: /\.js$|\.jsx$/,
+            enforce: 'post',
+            exclude: /node_modules|test|webpack/,
+            loader: 'istanbul-instrumenter-loader',
             query: {
-              cacheDirectory: true,
-              presets: ['react', 'env'],
+              esModules: true,
             },
           },
-        ],
-        rules: [
-          // instrument only testing sources with Istanbul
           {
-            test: /\.jsx$/,
-            use: { loader: 'istanbul-instrumenter-loader' },
-            include: `${process.cwd()}/src/Button.jsx`,
+            test: /\.js$|\.jsx$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/,
+          },
+          {
+            test: /\.styl$/,
+            exclude: /node_modules/,
+            use: ['style-loader', 'css-loader', 'stylus-loader'],
           },
         ],
       },
